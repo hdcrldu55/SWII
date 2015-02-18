@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+		<servlet>
+		<servlet-name>personaServlet</servlet-name>
+		<servlet-class>com.sw.servlet.personaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>personaServlet</servlet-name>
+		<url-pattern>/personaservlet</url-pattern> 
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>proyectoServlet</servlet-name>
+		<servlet-class>com.sw.servlet.proyectoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>proyectoServlet</servlet-name>
+		<url-pattern>/proyectoservlet</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>criteriosAceptacionServlet</servlet-name>
+		<servlet-class>com.sw.servlet.criteriosAceptacionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>criteriosAceptacionServlet</servlet-name>
+		<url-pattern>/criteriosaceptacionservlet</url-pattern>
+	</servlet-mapping>
+	
+			<servlet>
+		<servlet-name>teamServlet</servlet-name>
+		<servlet-class>com.sw.servlet.teamServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>teamServlet</servlet-name>
+		<url-pattern>/teamservlet</url-pattern>
+	</servlet-mapping>
+		
+			<servlet>
+		<servlet-name>historiaUsuarioServlet</servlet-name>
+		<servlet-class>com.sw.servlet.historiaUsuarioServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>historiaUsuarioServlet</servlet-name>
+		<url-pattern>/historiausuarioservlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>tareasServlet</servlet-name>
+		<servlet-class>com.sw.servlet.tareasServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>tareasServlet</servlet-name>
+		<url-pattern>/tareasservlet</url-pattern>
+	</servlet-mapping>
+	
+
+	 <servlet>
+		<servlet-name>ActualizarTeam</servlet-name>
+		<servlet-class>com.sw.servlet.ActualizarTeam</servlet-class>
+	</servlet>
+  	<servlet-mapping>
+     <servlet-name>ActualizarTeam</servlet-name>
+     <url-pattern>/actualizarteam</url-pattern>
+  	</servlet-mapping>
+	
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+
+
+	
+</web-app>
