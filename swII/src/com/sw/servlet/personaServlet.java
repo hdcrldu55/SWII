@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sw.entidades.persona;
+
 import com.sw.utils.personaUtils;
+
 
 
 @SuppressWarnings("serial")
@@ -40,6 +42,14 @@ public class personaServlet extends HttpServlet{
 	    RequestDispatcher rd =  
 	             getServletContext().getRequestDispatcher("/mostrarPersonas.jsp");
 	     rd.forward(request, response);
+	   }
+	   else if(request.getParameter("action").equals("delete")){
+		   personaUtils.eliminarPersona(Long.valueOf(request.getParameter("value")));
+		    List<persona> personas1 = personaUtils.listarPersona();
+		    request.setAttribute("personas1", personas1);
+		    RequestDispatcher rd =  
+		             getServletContext().getRequestDispatcher("/mostrarPersonas.jsp");
+		     rd.forward(request, response);
 	   }
 	  } finally { 
 	    out.close();

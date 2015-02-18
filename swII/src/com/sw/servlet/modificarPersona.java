@@ -21,7 +21,7 @@ public class modificarPersona extends HttpServlet{
 	         throws ServletException, IOException {
 
 			String nombre= request.getParameter("nombre");
-			   personaUtils.eliminarCell(nombre);
+			//   personaUtils.eliminarCell(nombre);
 		    /* String apellido= request.getParameter("apellido");
 		     personaUtils.eliminarCell(apellido);
 		     String mail= request.getParameter("mail");

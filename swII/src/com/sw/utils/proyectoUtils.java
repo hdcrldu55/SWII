@@ -8,8 +8,10 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
 
+import com.sw.PMF.historiaUsuarioPMF;
 import com.sw.PMF.proyectoPMF;
 import com.sw.entidades.proyecto;
+
 
 //import com.sw.PMF.personaPMF;
 //import com.sw.entidades.persona;
@@ -27,6 +29,11 @@ public static List<proyecto> listarProyecto(){
 	PersistenceManager  pmf = proyectoPMF.get().getPersistenceManager();	
 	final Query query1 = pmf.newQuery(proyecto.class);
 	return (List<proyecto>) query1.execute();
+}
+public static void eliminarProyecto(Long id){
+	PersistenceManager  pmf = proyectoPMF.get().getPersistenceManager();	
+	proyecto proyecto1 = pmf.getObjectById(proyecto.class, id);
+	pmf.deletePersistent(proyecto1);
 }
 }
 

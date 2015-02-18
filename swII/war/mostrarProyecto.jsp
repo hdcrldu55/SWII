@@ -47,7 +47,7 @@ List<proyecto> proyecto1 = (List<proyecto>)request.getAttribute("proyecto1");
         </a>
       </p></td>
        <td><p>
-        <a href="#">
+        <a href="proyectoservlet?action=delete&value=<%=pr.getIdProyecto()%>">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </p></td>

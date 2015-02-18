@@ -39,6 +39,12 @@ List<criteriosAceptacion> criteriosAceptacion1 = (List<criteriosAceptacion>)requ
     <tr>
      <td><%= ca.getIdCA() %></td>
      <td><%= ca.getDescripcionCA() %></td>
+       <td><p>
+        <a href="criteriosaceptacionservlet?action=delete&value=<%=ca.getIdCA()%>">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </p></td>
+      
      </tr>
 
 <%}%>
@@ -49,7 +55,10 @@ List<criteriosAceptacion> criteriosAceptacion1 = (List<criteriosAceptacion>)requ
     </div>
    <div style="text-align: center;">
  <span>
-
+ 
+  <a href="/historiausuarioservlet?action=show">Ir a Historias de Usuario</a>
+ <br>
+ <br>
    <a href="/index.jsp">Ir al Inicio</a>
 
 <div class=”overlay-container”>

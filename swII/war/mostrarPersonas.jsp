@@ -51,7 +51,7 @@ List<persona> personas1 = (List<persona>)request.getAttribute("personas1");
         </a>
       </p></td>
        <td><p>
-        <a href="#">
+        <a href="personaservlet?action=delete&value=<%=p.getIdPersona()%>">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </p></td>

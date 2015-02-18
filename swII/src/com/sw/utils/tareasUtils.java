@@ -5,6 +5,7 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
+import com.sw.PMF.historiaUsuarioPMF;
 import com.sw.PMF.tareasPMF;
 import com.sw.entidades.tareas;
 
@@ -23,5 +24,9 @@ public static List<tareas> listarTareas(){
 	final Query query1 = pmf.newQuery(tareas.class);
 	return (List<tareas>) query1.execute();
 }
-
+public static void eliminarTareas(Long id){
+	PersistenceManager  pmf = historiaUsuarioPMF.get().getPersistenceManager();	
+	tareas tareas1 = pmf.getObjectById(tareas.class, id);
+	pmf.deletePersistent(tareas1);
+}
 }

@@ -44,7 +44,14 @@ public class historiaUsuarioServlet extends HttpServlet{
 	    RequestDispatcher rd =  
 	             getServletContext().getRequestDispatcher("/mostrarHistoriasUsuario.jsp");
 	     rd.forward(request, response);
-	   }
+	   }else if(request.getParameter("action").equals("delete")){
+		   historiaUsuarioUtils.eliminarHistoriaUsuario(Long.valueOf(request.getParameter("value")));
+		    List<historiaUsuario> historiaUsuario1 = historiaUsuarioUtils.listarHistoriaUsuario();
+		    request.setAttribute("historiaUsuario1", historiaUsuario1);
+		    RequestDispatcher rd =  
+		             getServletContext().getRequestDispatcher("/mostrarHistoriasUsuario.jsp");
+		     rd.forward(request, response);
+		   }
 	  } finally { 
 	    out.close();
 	  }

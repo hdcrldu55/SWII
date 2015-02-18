@@ -6,7 +6,9 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
+import com.sw.PMF.historiaUsuarioPMF;
 import com.sw.PMF.teamPMF;
+
 
 import com.sw.entidades.team;
 import com.sw.servlet.ActualizarTeam;
@@ -24,6 +26,11 @@ public static List<team> listarTeam(){
 	PersistenceManager  pmf = teamPMF.get().getPersistenceManager();	
 	final Query query1 = pmf.newQuery(team.class);
 	return (List<team>) query1.execute();
+}
+public static void eliminarTeam(Long id){
+	PersistenceManager  pmf = teamPMF.get().getPersistenceManager();	
+	team team1 = pmf.getObjectById(team.class, id);
+	pmf.deletePersistent(team1);
 }
 /*
 @SuppressWarnings("unchecked")

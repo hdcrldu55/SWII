@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import javax.jdo.annotations.Persistent;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,7 +37,15 @@ public class tareasServlet extends HttpServlet{
 	    RequestDispatcher rd =  
 	             getServletContext().getRequestDispatcher("/mostrarTareas.jsp");
 	     rd.forward(request, response);
+	   }else if(request.getParameter("action").equals("delete")){
+		   tareasUtils.eliminarTareas(Long.valueOf(request.getParameter("value")));
+		    List<tareas> tareas1 = tareasUtils.listarTareas();
+		    request.setAttribute("tareas1", tareas1);
+		    RequestDispatcher rd =  
+		             getServletContext().getRequestDispatcher("/mostrarTareas.jsp");
+		     rd.forward(request, response);
 	   }
+	   
 	  } finally { 
 	    out.close();
 	  }

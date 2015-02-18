@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 import com.sw.entidades.team;
+
 
 import com.sw.utils.teamUtils;
 
@@ -41,6 +43,14 @@ import com.sw.utils.teamUtils;
 		    RequestDispatcher rd =  
 		             getServletContext().getRequestDispatcher("/mostrarTeam.jsp");
 		     rd.forward(request, response);
+		   }
+		   else if(request.getParameter("action").equals("delete")){
+			   teamUtils.eliminarTeam(Long.valueOf(request.getParameter("value")));
+			    List<team> team1 = teamUtils.listarTeam();
+			    request.setAttribute("team1", team1);
+			    RequestDispatcher rd =  
+			             getServletContext().getRequestDispatcher("/mostrarTeam.jsp");
+			     rd.forward(request, response);
 		   }
 		  } finally { 
 		    out.close();

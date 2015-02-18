@@ -38,6 +38,13 @@ public class criteriosAceptacionServlet extends HttpServlet{
 	    RequestDispatcher rd =  
 	             getServletContext().getRequestDispatcher("/mostrarCriteriosAceptacion.jsp");
 	     rd.forward(request, response);
+	   }if(request.getParameter("action").equals("delete")){
+		   criteriosAceptacionUtils.eliminarCriteriosAceptacion(Long.valueOf(request.getParameter("value")));
+		   List<criteriosAceptacion> criteriosAceptacion1 =  criteriosAceptacionUtils.listarCriteriosAceptacion();
+		    request.setAttribute("criteriosAceptacion1", criteriosAceptacion1);
+		    RequestDispatcher rd =  
+		             getServletContext().getRequestDispatcher("/mostrarCriteriosAceptacion.jsp");
+		    rd.forward(request, response);
 	   }
 	  } finally { 
 	    out.close();

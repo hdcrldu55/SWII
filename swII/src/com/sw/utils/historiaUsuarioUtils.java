@@ -22,5 +22,10 @@ public static List<historiaUsuario> listarHistoriaUsuario(){
 	final Query query1 = pmf.newQuery(historiaUsuario.class);
 	return (List<historiaUsuario>) query1.execute();
 }
+public static void eliminarHistoriaUsuario(Long id){
+	PersistenceManager  pmf = historiaUsuarioPMF.get().getPersistenceManager();	
+	historiaUsuario historiaUsuario1 = pmf.getObjectById(historiaUsuario.class, id);
+	pmf.deletePersistent(historiaUsuario1);
+}
 
 }

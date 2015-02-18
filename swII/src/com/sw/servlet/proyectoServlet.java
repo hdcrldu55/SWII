@@ -15,8 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 
 //import com.sw.entidades.persona;
 import com.sw.entidades.proyecto;
+
+import com.sw.utils.personaUtils;
 import com.sw.utils.proyectoUtils;
 //import com.sw.utils.personaUtils;
+
 
 
 @SuppressWarnings("serial")
@@ -47,6 +50,13 @@ public class proyectoServlet extends HttpServlet{
 	    RequestDispatcher rd =  
 	             getServletContext().getRequestDispatcher("/mostrarProyecto.jsp");
 	     rd.forward(request, response);
+	   }else if(request.getParameter("action").equals("delete")){
+		   proyectoUtils.eliminarProyecto(Long.valueOf(request.getParameter("value")));
+		    List<proyecto> proyecto1 = proyectoUtils.listarProyecto();
+		    request.setAttribute("proyecto1", proyecto1);
+		    RequestDispatcher rd =  
+		             getServletContext().getRequestDispatcher("/mostrarProyecto.jsp");
+		     rd.forward(request, response);
 	   }
 	  } catch (ParseException e) {
 		// TODO Auto-generated catch block

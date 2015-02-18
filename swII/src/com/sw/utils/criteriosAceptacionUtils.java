@@ -7,6 +7,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
 import com.sw.PMF.criteriosAceptacionPMF;
+import com.sw.PMF.historiaUsuarioPMF;
 import com.sw.entidades.criteriosAceptacion;
 
 
@@ -24,5 +25,9 @@ public static List<criteriosAceptacion> listarCriteriosAceptacion(){
 	final Query query1 = pmf.newQuery(criteriosAceptacion.class);
 	return (List<criteriosAceptacion>) query1.execute();
 }
-
+public static void eliminarCriteriosAceptacion(Long id){
+	PersistenceManager  pmf = historiaUsuarioPMF.get().getPersistenceManager();	
+	criteriosAceptacion criteriosAceptacion1 = pmf.getObjectById(criteriosAceptacion.class, id);
+	pmf.deletePersistent(criteriosAceptacion1);
+}
 }

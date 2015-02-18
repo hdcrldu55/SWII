@@ -1,4 +1,9 @@
+<%@page import="com.sw.entidades.persona" %>
+<%@page import="java.util.*"%>
 
+<%
+List<persona> personas1 = (List<persona>)request.getAttribute("personas1");
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,6 +35,25 @@
        <td>Responsable:</td>
        <td><input type="text" name="responsablehu" /></td>
   </tr>
+         <%
+ for (int idx = 0; idx < personas1.size(); idx++) {
+     persona p = (persona)personas1.get(idx);
+%>
+ <tr>
+ <TD>Responsable: </TD>
+  <TD>
+	<SELECT name="responsablehu">
+		<OPTION VALUE="<%= p.getNombrePersona() %>"></OPTION>
+				
+	</SELECT>
+	</TD>
+  
+         
+    </tr>
+
+<%}%>
+
+  
    <tr>
        <td>Riesgo:</td>
        <td><input type="text" name="riesgohu" /></td>

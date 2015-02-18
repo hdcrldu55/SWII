@@ -48,7 +48,7 @@ List<team> team1 = (List<team>)request.getAttribute("team1");
         </a>
       </p></td>
        <td><p>
-        <a href="#">
+        <a href="teamservlet?action=delete&value=<%=te.getIdTeam()%>">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </p></td>

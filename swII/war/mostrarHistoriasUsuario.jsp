@@ -21,8 +21,8 @@ List<historiaUsuario> historiaUsuario1 = (List<historiaUsuario>)request.getAttri
 
   <body>
     <div class="container">
-      <h2>Listar Historia de Usuario</h2>
-                                                                                            
+      <h2>Listar Historia de Usuario</h2>                                             
+                                                                                          
       <div class="table-responsive">          
       <table class="table">
         <thead>
@@ -54,9 +54,13 @@ List<historiaUsuario> historiaUsuario1 = (List<historiaUsuario>)request.getAttri
      <th><a href="/CrearTareas.jsp">Crear Tarea</a><br></th>
        <th>   <a href="/tareasservlet?action=show"> Listar Tarea</a><br></th>  
  <th><a href="/CrearCriteriosAceptacion.jsp">Crear Criterio de Aceptación</a><br></th>
-       <th>   <a href="/criteriosaceptacionservlet?action=show"> Listar Criterio de Aceptación</a><br></th>  
+       <th>   <a href="/criteriosaceptacionservlet?action=show"> Listar Criterio de Aceptación</a></th>  
+         <td><p>
+        <a href="historiausuarioservlet?action=delete&value=<%=hu.getIdHusuario()%>">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </p></td>
     </tr>
-
 <%}%>
 
         </tbody>
@@ -65,7 +69,11 @@ List<historiaUsuario> historiaUsuario1 = (List<historiaUsuario>)request.getAttri
     </div>
    <div style="text-align: center;">
  <span>
-
+ 
+ 
+ <a href="/proyectoservlet?action=show">Ir a Proyectos</a>
+<br>
+<br>
    <a href="/index.jsp">Ir al Inicio</a>
 
 <div class=”overlay-container”>
