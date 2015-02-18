@@ -34,14 +34,16 @@ import com.sw.utils.sprintUtils;
 		     Date fechaInicioSprint= new Date();
 		     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		     fechaInicioSprint = sdf.parse(request.getParameter("fechaInicioSprint"));
-		    		 
 		     Date fechaFinSprint= new Date();
 		     fechaFinSprint = sdf.parse(request.getParameter("fechaFinSprint"));
+		     String horaSprint= request.getParameter("horaSprint");
 		     
-		     sprintUtils.insertarSprint(nombreSprint, descripcionSprint, fechaInicioSprint, fechaFinSprint);
-		     	     
+		     sprintUtils.insertarSprint(nombreSprint, descripcionSprint, fechaInicioSprint, fechaFinSprint, horaSprint);
+		     	
+		     List<sprint> sprint1 = sprintUtils.listarSprint();
+			    request.setAttribute("sprint1", sprint1);
 		     RequestDispatcher rd =  
-		             getServletContext().getRequestDispatcher("/index.jsp");
+		             getServletContext().getRequestDispatcher("/mostrarSprint.jsp");
 		     rd.forward(request, response);
 		     
 		   }else if(request.getParameter("action").equals("show")){

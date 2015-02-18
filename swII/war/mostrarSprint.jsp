@@ -29,6 +29,7 @@ List<sprint> sprint1 = (List<sprint>)request.getAttribute("sprint1");
      	<th>Descripción</th>
     	 <th>Fecha Inicio</th>
     	 <th>Fecha Fin</th>
+    	 <th>Hora</th>
 
           </tr>
         </thead>
@@ -43,14 +44,15 @@ List<sprint> sprint1 = (List<sprint>)request.getAttribute("sprint1");
      <td><%= sp.getNombreSprint() %></td>
      <td><%= sp.getDescripcionSprint()%></td>
      <td><%= sp.getFechaInicioSprint()%></td>
-     <td><%= sp.getFechaFinSprint()%></td>   
+     <td><%= sp.getFechaFinSprint()%></td>
+     <td><%= sp.getHoraSprint()%></td>     
       <td> <p>
         <a href="#">
           <span class="glyphicon glyphicon-repeat"></span>
         </a>
       </p></td>
        <td><p>
-        <a href="proyectoservlet?action=delete&value=<%=sp.getIdSprint()%>">
+        <a href="sprintservlet?action=delete&value=<%=sp.getIdSprint()%>">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </p></td>

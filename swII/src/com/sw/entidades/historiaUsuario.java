@@ -21,9 +21,11 @@ public class historiaUsuario {
 	private String descripcionHU;
 	@Persistent 
 	private String observacionHU;
+	@Persistent 
+	private String tiempoHU;
 	public historiaUsuario(String nombreHU, String responsableHU,
 			String riesgoHU, String prioridadHU, String esfuerzoHU,
-			String descripcionHU, String observacionHU) {
+			String descripcionHU, String observacionHU,String tiempoHU) {
 		super();
 		this.nombreHU = nombreHU;
 		this.responsableHU = responsableHU;
@@ -32,7 +34,17 @@ public class historiaUsuario {
 		this.esfuerzoHU = esfuerzoHU;
 		this.descripcionHU = descripcionHU;
 		this.observacionHU = observacionHU;
+		this.tiempoHU = tiempoHU;
 	}
+	
+	public String getTiempoHU() {
+		return tiempoHU;
+	}
+
+	public void setTiempoHU(String tiempoHU) {
+		this.tiempoHU = tiempoHU;
+	}
+
 	public Long getIdHusuario() {
 		return idHusuario;
 	}

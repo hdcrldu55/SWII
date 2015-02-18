@@ -57,7 +57,18 @@
        <td>Fecha Fin:</td>
        <td><input type="text" name="fechaFinSprint" class="campofecha" size="12"></td>
       </tr> 
-          
+ 
+<TR>
+	<TD>Tiempo:</TD>
+	<TD>
+	<SELECT name="horaSprint">
+		<OPTION VALUE="Dia">Día</OPTION>
+		<OPTION VALUE="Hora">Hora</OPTION>
+			
+	</SELECT>
+	</TD>
+</TR>
+     
       <tr>
        <td colspan="2" bgcolor="#ffffff" align="left">
        <input type="hidden" name="action" value="create"/>

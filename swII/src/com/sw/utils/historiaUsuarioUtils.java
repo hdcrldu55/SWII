@@ -9,10 +9,10 @@ import com.sw.PMF.historiaUsuarioPMF;
 import com.sw.entidades.historiaUsuario;
 
 public class historiaUsuarioUtils {
-public static void insertarHistoriaUsuario(String nombrehu, String responsablehu, String riesgohu, String prioridadhu, String esfuerzohu, String descripcionhu, String observacionhu)
+public static void insertarHistoriaUsuario(String nombrehu, String responsablehu, String riesgohu, String prioridadhu, String esfuerzohu, String descripcionhu, String observacionhu, String tiempohu)
 {
 	PersistenceManager  pmf = historiaUsuarioPMF.get().getPersistenceManager();	
-	historiaUsuario historiaUsuario1 = new historiaUsuario(nombrehu, responsablehu, riesgohu, prioridadhu, esfuerzohu, descripcionhu, observacionhu); 
+	historiaUsuario historiaUsuario1 = new historiaUsuario(nombrehu, responsablehu, riesgohu, prioridadhu, esfuerzohu, descripcionhu, observacionhu, tiempohu); 
 	pmf.makePersistent(historiaUsuario1);
 	
 }

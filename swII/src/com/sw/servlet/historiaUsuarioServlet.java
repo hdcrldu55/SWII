@@ -30,8 +30,9 @@ public class historiaUsuarioServlet extends HttpServlet{
 	     String esfuerzoHU= request.getParameter("esfuerzohu");
 	     String descripcionHU= request.getParameter("descripcionhu");
 	     String observacionHU= request.getParameter("observacionhu");
+	     String tiempoHU= request.getParameter("tiempohu");
 	     
-	     historiaUsuarioUtils.insertarHistoriaUsuario(nombreHU, responsableHU, riesgoHU, prioridadHU, esfuerzoHU, descripcionHU, observacionHU);
+	     historiaUsuarioUtils.insertarHistoriaUsuario(nombreHU, responsableHU, riesgoHU, prioridadHU, esfuerzoHU, descripcionHU, observacionHU, tiempoHU);
 	     List<historiaUsuario> historiaUsuario1 = historiaUsuarioUtils.listarHistoriaUsuario();
 		    request.setAttribute("historiaUsuario1", historiaUsuario1);
 		    RequestDispatcher rd =  

@@ -21,13 +21,23 @@ public class sprint {
 	private Date fechaInicioSprint;
 	@Persistent 
 	private Date fechaFinSprint;
+	@Persistent 
+	private String horaSprint;
+	
 	public sprint(String nombreSprint, String descripcionSprint,
-			Date fechaInicioSprint, Date fechaFinSprint) {
+			Date fechaInicioSprint, Date fechaFinSprint, String horaSprint) {
 		super();
 		this.nombreSprint = nombreSprint;
 		this.descripcionSprint = descripcionSprint;
 		this.fechaInicioSprint = fechaInicioSprint;
 		this.fechaFinSprint = fechaFinSprint;
+		this.horaSprint = horaSprint;
+	}
+	public String getHoraSprint() {
+		return horaSprint;
+	}
+	public void setHoraSprint(String horaSprint) {
+		this.horaSprint = horaSprint;
 	}
 	public Long getIdSprint() {
 		return idSprint;

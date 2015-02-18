@@ -2,7 +2,7 @@
 <%@page import="java.util.*"%>
 
 <%
-List<persona> personas1 = (List<persona>)request.getAttribute("personas1");
+List<persona> personas1 = (List<persona>)request.getAttribute("persona1");
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -35,25 +35,7 @@ List<persona> personas1 = (List<persona>)request.getAttribute("personas1");
        <td>Responsable:</td>
        <td><input type="text" name="responsablehu" /></td>
   </tr>
-         <%
- for (int idx = 0; idx < personas1.size(); idx++) {
-     persona p = (persona)personas1.get(idx);
-%>
- <tr>
- <TD>Responsable: </TD>
-  <TD>
-	<SELECT name="responsablehu">
-		<OPTION VALUE="<%= p.getNombrePersona() %>"></OPTION>
-				
-	</SELECT>
-	</TD>
-  
-         
-    </tr>
-
-<%}%>
-
-  
+ 
    <tr>
        <td>Riesgo:</td>
        <td><input type="text" name="riesgohu" /></td>
@@ -67,6 +49,21 @@ List<persona> personas1 = (List<persona>)request.getAttribute("personas1");
        <td><input type="text" name="esfuerzohu" /></td>
        </tr>
        <tr>
+       
+          <tr>
+<TR>
+	<TD>Tiempo:</TD>
+	<TD>
+	<SELECT name="tiempohu">
+		<OPTION VALUE="Dia">Día</OPTION>
+		<OPTION VALUE="Hora">Hora</OPTION>
+			
+	</SELECT>
+	</TD>
+</TR>
+
+   </tr>
+       
        <td>Descripción:</td>
              <label class="control-label col-sm-2"></label> 
      <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="descripcionhu"/>>

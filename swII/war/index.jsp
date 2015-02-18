@@ -29,8 +29,9 @@
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
        <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
       <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -74,14 +75,36 @@
       
       <div style="text-align: rigth;">
             <img src="img/xrump.png" alt="Chania" width="350" height="120"> </div>
-        <img src=http://www.codejobs.biz/www/lib/files/images/0d4969c2d87cb3c.png alt="Flower" width="460" height="345">
+            <div style="text-align: center;">
+         <h1>Gestión de Sprint</h1> </div>
+         <img src="http://casari-asoc.com/blog/wp-content/uploads/2012/05/task-board-no-toploading.png" alt="Chania" width="460" height="345">
         <div style="text-align: center;">
            <h1>.........................................................................</h1>
        <!-- Desplegando -->
        
         <a href="crearSprint.jsp">Crear Sprint </a><br>
          <a href="/sprintservlet?action=show"> Listar Sprint</a></div>
+         <a href=""> product back log</a><br>
+         <a href=""> sprint backlog</a>
       </div>
+      
+      
+           <div class="item" >
+      
+      <div style="text-align: rigth;">
+            <img src="img/xrump.png" alt="Chania" width="350" height="120"> </div>
+            <div style="text-align: center;">
+         <h1>Gestión de Sprint</h1> </div>
+         <img src="http://elapartamento.org/wp-content/uploads/2015/01/proximamente2.png" alt="Chania" width="460" height="345">
+        <div style="text-align: center;">
+           <h1>.........................................................................</h1>
+       <!-- Desplegando -->
+       
+        
+         <a href=""> Product Backlog</a><br>
+         <a href=""> Sprint Backlog</a></div>
+      </div>
+    
     
       <div class="item" >
       

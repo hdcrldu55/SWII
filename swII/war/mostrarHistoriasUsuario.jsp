@@ -33,6 +33,7 @@ List<historiaUsuario> historiaUsuario1 = (List<historiaUsuario>)request.getAttri
      <th>Riesgo</th>
      <th>Prioridad</th>
      <th>Esfuerzo</th>
+     <th>Tiempo</th>
      <th>Descripción</th>
      <th>Observación</th>
 
@@ -49,8 +50,10 @@ List<historiaUsuario> historiaUsuario1 = (List<historiaUsuario>)request.getAttri
      <td><%= hu.getRiesgoHU() %></td>
      <td><%= hu.getPrioridadHU() %></td>
      <td><%= hu.getEsfuerzoHU() %></td>
+     <td><%= hu.getTiempoHU() %></td>
      <td><%= hu.getDescripcionHU() %></td>
      <td><%= hu.getObservacionHU() %></td>
+     
      <th><a href="/CrearTareas.jsp">Crear Tarea</a><br></th>
        <th>   <a href="/tareasservlet?action=show"> Listar Tarea</a><br></th>  
  <th><a href="/CrearCriteriosAceptacion.jsp">Crear Criterio de Aceptación</a><br></th>
