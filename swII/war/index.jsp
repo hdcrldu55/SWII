@@ -94,7 +94,7 @@
       <div style="text-align: rigth;">
             <img src="img/xrump.png" alt="Chania" width="350" height="120"> </div>
             <div style="text-align: center;">
-         <h1>Gestión de Sprint</h1> </div>
+         <h1></h1> </div>
          <img src="http://elapartamento.org/wp-content/uploads/2015/01/proximamente2.png" alt="Chania" width="460" height="345">
         <div style="text-align: center;">
            <h1>.........................................................................</h1>

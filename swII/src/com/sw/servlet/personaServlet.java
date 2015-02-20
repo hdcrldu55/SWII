@@ -30,14 +30,18 @@ public class personaServlet extends HttpServlet{
 	     String apellido= request.getParameter("apellido");
 	     String mail= request.getParameter("mail");
 	     String descripcion= request.getParameter("descripcion");
+	     String team= request.getParameter("team");
 	     
-	     personaUtils.insertarPersona(nombre, apellido, mail, descripcion);
-	     RequestDispatcher rd =  
-	             getServletContext().getRequestDispatcher("/MensajeP.jsp"); 
-	     rd.forward(request, response);
+	     personaUtils.insertarPersona(nombre, apellido, mail, descripcion, team);
+	     
+	     List<persona> personas1 = personaUtils.listarPersonaTeam(team);
+		    request.setAttribute("personas1", personas1);
+		    RequestDispatcher rd =  
+		             getServletContext().getRequestDispatcher("/mostrarPersonas.jsp");
+		     rd.forward(request, response);
 	     
 	   }else if(request.getParameter("action").equals("show")){
-	    List<persona> personas1 = personaUtils.listarPersona();
+	    List<persona> personas1 = personaUtils.listarPersonaTeam(request.getParameter("teamID"));
 	    request.setAttribute("personas1", personas1);
 	    RequestDispatcher rd =  
 	             getServletContext().getRequestDispatcher("/mostrarPersonas.jsp");
@@ -45,7 +49,7 @@ public class personaServlet extends HttpServlet{
 	   }
 	   else if(request.getParameter("action").equals("delete")){
 		   personaUtils.eliminarPersona(Long.valueOf(request.getParameter("value")));
-		    List<persona> personas1 = personaUtils.listarPersona();
+		    List<persona> personas1 = personaUtils.listarPersonaTeam(request.getParameter("teamID"));
 		    request.setAttribute("personas1", personas1);
 		    RequestDispatcher rd =  
 		             getServletContext().getRequestDispatcher("/mostrarPersonas.jsp");

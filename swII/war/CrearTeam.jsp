@@ -1,4 +1,6 @@
-
+<%@page import="java.util.*"%>
+<%String proyecto = request.getParameter("proyectoID"); 
+String nombre = request.getParameter("nombreP");%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -17,12 +19,17 @@
  <span>
   <a href="/index.jsp">Ir al indice</a><br>
  </span>
- <span ><h1>Crear un Team</h1></span>
+ <span ><h1>Crear un Team para: <%=nombre%></h1></span>
   <form action="/teamservlet" method="get">
   <table border="0">
+  <tr>
+       <input type="hidden" name="proyectoT" value="<%= proyecto %>"/>
+       <td>Proyecto:</td>
+       <label class="control-label col-sm-1"></label> 
+       <td><input type="text" name="proyectoT" value="<%= proyecto %>" disabled="disabled"/></td>
+  </tr>
        <tr>
-       <td>Nombre:</td>
-       <label class="control-label col-sm-2"></label>      
+       <td>Nombre:</td>    
        <td><input type="text" name="nombreTeam" /></td>
       </tr>     
       <tr>
@@ -36,14 +43,20 @@
       <tr>
        <td colspan="2" bgcolor="#ffffff" align="left">
        <input type="hidden" name="action" value="create"/>
+        <input type="hidden" name="proyectoID" value="<%=request.getParameter("proyectoID")%>"/>
+  		<input type="hidden" name="nombreP" value="<%=request.getParameter("nombreP")%>"/>
        <input type="submit" value="Registrar" >
        </td>
       </tr>
    </table>
       <div style="text-align: center;">
  <span>
-   
-       
+ <a href="/teamservlet?action=show&proyectoID=<%= proyecto %>&nombreP=<%= nombre%>"> Listar Team</a>
+<br>
+<br>    
+<a href="/proyectoservlet?action=show">Ir a Proyectos</a>
+<br>
+<br>    
    <a href="/index.jsp">Ir al Inicio</a>
   </span>
 </div>

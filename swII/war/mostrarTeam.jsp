@@ -4,10 +4,11 @@
 
 <%
 List<team> team1 = (List<team>)request.getAttribute("team1");
+String proyecto = request.getParameter("proyectoID");
+String nombre = request.getParameter("nombreP");
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,38 +23,44 @@ List<team> team1 = (List<team>)request.getAttribute("team1");
 
   <body>
     <div class="container">
-      <h2>Mostrar Team</h2>
-                                                                                            
+      <h2>Mostrar Team de: <%=nombre%></h2>    
+      
+<a href="/CrearTeam.jsp?proyectoID=<%=proyecto%>&nombreP=<%=nombre%>">Crear Team</a>                                         
+                                                                                          
       <div class="table-responsive">          
       <table class="table">
         <thead>
           <tr>
-     <th>Id</th>
+     <th>Proyecto</th>
+        <th>Id</th>
      <th>Nombre</th>
      <th>Descripción</th>
+
 
         </thead>
         <tbody>
          <%
  for (int idx = 0; idx < team1.size(); idx++) {
-     team te = (team)team1.get(idx);
+	 team te = (team)team1.get(idx);
 %>
     <tr>
-     <td><%= te.getIdTeam() %></td>
+    <td><%= te.getProyectoHU()  %></td>
+    <td><%=  te.getIdTeam()%></td>
      <td><%= te.getNombreTeam()%></td>
-     <td><%= te.getDescripcionTeam()%></td>
-     <td> <p>
+     <td><%= te.getDescripcionTeam() %></td>
+     
+    <td> <p>
          <a href="/actualizarTeam.jsp">
           <span class="glyphicon glyphicon-repeat"></span>
         </a>
       </p></td>
        <td><p>
-        <a href="teamservlet?action=delete&value=<%=te.getIdTeam()%>">
+        <a href="teamservlet?action=delete&value=<%=te.getIdTeam()%>&proyectoID=<%=proyecto%>&nombreP=<%=nombre%>">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </p></td>
-     <th><a href="/CrearPersona.jsp">Crear Persona</a><br></th>
-     <th>   <a href="/personaservlet?action=show"> Listar Personas</a><br></th>  
+     <th><a href="/CrearPersona.jsp?teamID=<%=te.getIdTeam()%>&nombreT=<%=te.getNombreTeam()%>&proyectoID=<%=proyecto%>&nombreP=<%=nombre%>">Crear Persona</a><br></th>
+     <th>   <a href="/personaservlet?action=show&teamID=<%=te.getIdTeam()%>&nombreT=<%=te.getNombreTeam()%>&proyectoID=<%=proyecto%>&nombreP=<%=nombre%>"> Listar Personas</a><br></th>  
     </tr>
 
 <%}%>
@@ -64,12 +71,20 @@ List<team> team1 = (List<team>)request.getAttribute("team1");
     </div>
    <div style="text-align: center;">
  <span>
-
-   <a href="/index.jsp">Ir al Inicio</a>
+<br>
+<br>  
+<a href="/proyectoservlet?action=show">Ir a Proyectos</a>
+<br>
+<br> 
+    <a href="/index.jsp">Ir al Inicio</a>
 
 <div class=”overlay-container”>
 
 
+
+<div class=”overlay-container”>
+
+ 
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -79,4 +94,3 @@ List<team> team1 = (List<team>)request.getAttribute("team1");
   </body>
 
 </html>
-

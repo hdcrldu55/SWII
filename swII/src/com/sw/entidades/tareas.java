@@ -15,10 +15,19 @@ public class tareas {
 	private String nombreTarea;
 	@Persistent 
 	private String resultadoTarea;
-	public tareas(String nombreTarea, String resultadoTarea) {
+	@Persistent 
+	private String historiaTarea;
+	public tareas(String nombreTarea, String resultadoTarea, String historiaTarea) {
 		super();
 		this.nombreTarea = nombreTarea;
 		this.resultadoTarea = resultadoTarea;
+		this.historiaTarea = historiaTarea;
+	}
+	public String getHistoriaTarea() {
+		return historiaTarea;
+	}
+	public void setHistoriaTarea(String historiaTarea) {
+		this.historiaTarea = historiaTarea;
 	}
 	public Long getIdTarea() {
 		return idTarea;

@@ -22,10 +22,10 @@ public class historiaUsuario {
 	@Persistent 
 	private String observacionHU;
 	@Persistent 
-	private String tiempoHU;
+	private String proyectoHU;
 	public historiaUsuario(String nombreHU, String responsableHU,
 			String riesgoHU, String prioridadHU, String esfuerzoHU,
-			String descripcionHU, String observacionHU,String tiempoHU) {
+			String descripcionHU, String observacionHU, String proyectoHU) {
 		super();
 		this.nombreHU = nombreHU;
 		this.responsableHU = responsableHU;
@@ -34,17 +34,14 @@ public class historiaUsuario {
 		this.esfuerzoHU = esfuerzoHU;
 		this.descripcionHU = descripcionHU;
 		this.observacionHU = observacionHU;
-		this.tiempoHU = tiempoHU;
+		this.proyectoHU = proyectoHU;
 	}
-	
-	public String getTiempoHU() {
-		return tiempoHU;
+	public String getProyectoHU() {
+		return proyectoHU;
 	}
-
-	public void setTiempoHU(String tiempoHU) {
-		this.tiempoHU = tiempoHU;
+	public void setProyectoHU(String proyectoHU) {
+		this.proyectoHU = proyectoHU;
 	}
-
 	public Long getIdHusuario() {
 		return idHusuario;
 	}

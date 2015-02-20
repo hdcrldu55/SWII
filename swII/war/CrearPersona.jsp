@@ -1,3 +1,6 @@
+<%@page import="java.util.*"%>
+<%String teamID = request.getParameter("teamID"); 
+String nombreT = request.getParameter("nombreT");%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -17,14 +20,19 @@
  <span>
   <a href="/index.jsp">Ir al indice</a><br>
  </span>
- <span ><h1>Crear una Persona</h1></span>
+ <span ><h1>Crear una Persona para: <%=nombreT%></h1></span>
  
   <form action="/personaservlet" method="get">
   <table border="0">
+  <tr>
+  		<input type="hidden" name="team" value="<%=teamID%>"/>
+       <td>Team:</td>
+       <label class="control-label col-sm-2"></label> 
+       <td><input type="text" name="team" value="<%=teamID%>" disabled="disabled"/></td>
+  </tr>
 
    <tr>
        <td>Nombre:</td>
-       <label class="control-label col-sm-2"></label> 
        <td><input type="text" name="nombre" /></td>
   </tr>
    <tr>
@@ -53,6 +61,10 @@
       <tr>
        <td colspan="2" bgcolor="#ffffff" align="left">
        <input type="hidden" name="action" value="create"/>
+       <input type="hidden" name="proyectoID" value="<%=request.getParameter("proyectoID")%>"/>
+       <input type="hidden" name="nombreP" value="<%=request.getParameter("nombreP")%>"/>
+       <input type="hidden" name="teamID" value="<%=request.getParameter("teamID")%>"/>
+       <input type="hidden" name="nombreT" value="<%=request.getParameter("nombreT")%>"/>
        <input type="submit" value="Registrar" >
     
        </td>
@@ -61,7 +73,10 @@
         <div style="text-align: center;">
  <span>
 
-     <th>   <a href="/personaservlet?action=show"> Listar Personas</a><br></th>  
+     <th><a href="/personaservlet?action=show&teamID=<%=teamID%>&nombreT=<%=nombreT%>&proyectoID=<%=request.getParameter("proyectoID")%>&nombreP=<%=request.getParameter("nombreP")%>"> Listar Personas</a><br><br></th>  
+ <a href="/teamservlet?action=show&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP")%>"> Listar Team</a>
+ <br>
+ <br>
    <a href="/index.jsp">Ir al Inicio</a>
    
   </span>

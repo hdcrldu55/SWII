@@ -16,18 +16,26 @@ private String apellidoPersona;
 private String mailPersona;
 @Persistent 
 private String descripcionPersona;
-
+@Persistent 
+private String teamPersona;
 //    @Persistent  
 //    @Order(extensions = @Extension(vendorName="datanucleus", key="list-ordering", value="nombreProyecto"))
     //private List< proyecto> proyect;
 
 public persona(String nombrePersona, String apellidoPersona,
-		String mailPersona, String descripcionPersona) {
+		String mailPersona, String descripcionPersona, String teamPersona) {
 	super();
 	this.nombrePersona = nombrePersona;
 	this.apellidoPersona = apellidoPersona;
 	this.mailPersona = mailPersona;
 	this.descripcionPersona = descripcionPersona;
+	this.teamPersona = teamPersona;
+}
+public String getTeamPersona() {
+	return teamPersona;
+}
+public void setTeamPersona(String teamPersona) {
+	this.teamPersona = teamPersona;
 }
 public Long getIdPersona() {
 	return idPersona;
@@ -58,9 +66,5 @@ public String getDescripcionPersona() {
 }
 public void setDescripcionPersona(String descripcionPersona) {
 	this.descripcionPersona = descripcionPersona;
-}
-
-
-
-	
+}	
 }

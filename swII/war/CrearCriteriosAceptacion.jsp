@@ -1,3 +1,5 @@
+<%@page import="java.util.*"%>
+<%String historiaCA = request.getParameter("historiaUID"); %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -17,13 +19,20 @@
  <span>
   <a href="/index.jsp">Ir al indice</a><br>
  </span>
- <span ><h1>Crear Criterios de Aceptación</h1></span>
+ <span ><h1>Crear Criterios de Aceptación para: <%=request.getParameter("nombreHU")%></h1></span>
  
   <form action="/criteriosaceptacionservlet" method="get">
   <table border="0">
+  <input type="hidden" name="historiaCA" value="<%= historiaCA %>"/>
+  <tr>
+  <td>Historia de Usuario:</td>
+       <label class="control-label col-sm-1"></label> 
+       <td><input type="text" name="historiaCA" value="<%= historiaCA %>" disabled="disabled"/></td>
+  </tr>
    <tr>
        <td>Criterio de Aceptación: </td>
        <label class="control-label col-sm-2"></label> 
+       
      <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="descripcionCA"/>>
            </TEXTAREA> 
       </td>
@@ -32,6 +41,10 @@
   </tr>    
       <tr>
        <td colspan="2" bgcolor="#ffffff" align="left">
+       <input type="hidden" name="historiaUID" value="<%= request.getParameter("historiaUID")%>"/>
+       <input type="hidden" name="nombreHU" value="<%= request.getParameter("nombreHU")%>"/>
+       <input type="hidden" name="proyectoID" value="<%= request.getParameter("proyectoID")%>"/>
+       <input type="hidden" name="nombreP" value="<%= request.getParameter("nombreP")%>"/>
        <input type="hidden" name="action" value="create"/>
        <input type="submit" value="Registrar" >
        </td>
@@ -39,7 +52,12 @@
    </table>
         <div style="text-align: center;">
  <span>
-
+ <a href="/criteriosaceptacionservlet?action=show&historiaUID=<%= request.getParameter("historiaUID")%>&nombreHU=<%= request.getParameter("nombreHU") %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>"> Listar Criterio de Aceptación</a>
+<br>
+<br> 
+<a href="/historiausuarioservlet?action=show&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP")%>"> Listar Historia de Usuario</a>
+<br>
+<br>
    <a href="/index.jsp">Ir al Inicio</a>
    
   </span>

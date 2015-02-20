@@ -25,21 +25,24 @@ public class tareasServlet extends HttpServlet{
 	   if(request.getParameter("action").equals("create")){
 	     String nombret= request.getParameter("nombreTarea");
 	     String resultadot= request.getParameter("resultadoTarea");
+	     String historiat= request.getParameter("historiaTarea");
 	     
-	     tareasUtils.insertarTareas(nombret, resultadot);
-	     RequestDispatcher rd =  
-	             getServletContext().getRequestDispatcher("/MensajeTarea.jsp"); 
-	     rd.forward(request, response);
+	     tareasUtils.insertarTareas(nombret, resultadot, historiat);
+	     List<tareas> tareas1 = tareasUtils.listarTareasHistoria(historiat);
+		    request.setAttribute("tareas1", tareas1);
+		    RequestDispatcher rd =  
+		             getServletContext().getRequestDispatcher("/mostrarTareas.jsp");
+		     rd.forward(request, response);
 	     
 	   }else if(request.getParameter("action").equals("show")){
-	    List<tareas> tareas1 = tareasUtils.listarTareas();
+	    List<tareas> tareas1 = tareasUtils.listarTareasHistoria(request.getParameter("historiaUID"));
 	    request.setAttribute("tareas1", tareas1);
 	    RequestDispatcher rd =  
 	             getServletContext().getRequestDispatcher("/mostrarTareas.jsp");
 	     rd.forward(request, response);
 	   }else if(request.getParameter("action").equals("delete")){
 		   tareasUtils.eliminarTareas(Long.valueOf(request.getParameter("value")));
-		    List<tareas> tareas1 = tareasUtils.listarTareas();
+		    List<tareas> tareas1 = tareasUtils.listarTareasHistoria(request.getParameter("historiaUID"));
 		    request.setAttribute("tareas1", tareas1);
 		    RequestDispatcher rd =  
 		             getServletContext().getRequestDispatcher("/mostrarTareas.jsp");

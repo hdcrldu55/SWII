@@ -4,6 +4,8 @@
 
 <%
 List<historiaUsuario> historiaUsuario1 = (List<historiaUsuario>)request.getAttribute("historiaUsuario1");
+String proyecto = request.getParameter("proyectoID");
+String nombre = request.getParameter("nombreP");
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,19 +23,21 @@ List<historiaUsuario> historiaUsuario1 = (List<historiaUsuario>)request.getAttri
 
   <body>
     <div class="container">
-      <h2>Listar Historia de Usuario</h2>                                             
-                                                                                          
+      <h2>Listar Historia de Usuario de: <%=nombre%></h2> 
+                                                  
+<a href="/CrearHistoriasUsuario.jsp?proyectoID=<%=proyecto%>&nombreP=<%=nombre%>">Crear Historia de Usuario</a>  
+                                                                                         
       <div class="table-responsive">          
       <table class="table">
         <thead>
           <tr>
+     <th>Proyecto</th>
      <th>Id</th>
      <th>Nombre</th>
      <th>Responsable</th>
      <th>Riesgo</th>
      <th>Prioridad</th>
      <th>Esfuerzo</th>
-     <th>Tiempo</th>
      <th>Descripción</th>
      <th>Observación</th>
 
@@ -44,25 +48,21 @@ List<historiaUsuario> historiaUsuario1 = (List<historiaUsuario>)request.getAttri
 	 historiaUsuario hu = (historiaUsuario)historiaUsuario1.get(idx);
 %>
     <tr>
+    <td><%=  hu.getProyectoHU()%></td>
     <td><%=  hu.getIdHusuario()%></td>
      <td><%= hu.getNombreHU() %></td>
      <td><%= hu.getResponsableHU() %></td>
      <td><%= hu.getRiesgoHU() %></td>
      <td><%= hu.getPrioridadHU() %></td>
      <td><%= hu.getEsfuerzoHU() %></td>
-     <td><%= hu.getTiempoHU() %></td>
      <td><%= hu.getDescripcionHU() %></td>
      <td><%= hu.getObservacionHU() %></td>
-     
-     <th><a href="/CrearTareas.jsp">Crear Tarea</a><br></th>
-       <th>   <a href="/tareasservlet?action=show"> Listar Tarea</a><br></th>  
- <th><a href="/CrearCriteriosAceptacion.jsp">Crear Criterio de Aceptación</a><br></th>
-       <th>   <a href="/criteriosaceptacionservlet?action=show"> Listar Criterio de Aceptación</a></th>  
-         <td><p>
-        <a href="historiausuarioservlet?action=delete&value=<%=hu.getIdHusuario()%>">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
-      </p></td>
+     <th><a href="/CrearTareas.jsp?historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>">Crear Tarea</a><br></th>
+       <th>   <a href="/tareasservlet?action=show&historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>"> Listar Tarea</a><br></th>  
+ <th><a href="/CrearCriteriosAceptacion.jsp?historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>">Crear Criterio de Aceptación</a><br></th>
+       <th>   <a href="/criteriosaceptacionservlet?action=show&historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>"> Listar Criterio de Aceptación</a></th>  
+       <th></th>
+       <th>   <a href="historiausuarioservlet?action=delete&value=<%=hu.getIdHusuario()%>&proyectoID=<%=proyecto%>&nombreP=<%=nombre%>">Eliminar</a><br></th>
     </tr>
 <%}%>
 

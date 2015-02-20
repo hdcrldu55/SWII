@@ -11,10 +11,19 @@ public class team {
 	private String nombreTeam;
 	@Persistent 
 	private String descripcionTeam;
-	public team(String nombreTeam, String descripcionTeam) {
+	@Persistent 
+	private String proyectoT;
+	public team(String nombreTeam, String descripcionTeam, String proyectoT) {
 		super();
 		this.nombreTeam = nombreTeam;
 		this.descripcionTeam = descripcionTeam;
+		this.proyectoT = proyectoT;
+	}
+	public String getProyectoHU() {
+		return proyectoT;
+	}
+	public void setProyectoHU(String proyectoT) {
+		this.proyectoT = proyectoT;
 	}
 	public Long getIdTeam() {
 		return idTeam;

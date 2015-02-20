@@ -26,21 +26,24 @@ public class criteriosAceptacionServlet extends HttpServlet{
 	  try {
 	   if(request.getParameter("action").equals("create")){
 	     String descripcionCA= request.getParameter("descripcionCA");
+	     String historiaCA= request.getParameter("historiaCA");
 	     	     
-	     criteriosAceptacionUtils.insertarcriteriosAceptacion(descripcionCA);
-	     RequestDispatcher rd =  
-	             getServletContext().getRequestDispatcher("/MensajeHU.jsp"); 
-	     rd.forward(request, response);
+	     criteriosAceptacionUtils.insertarcriteriosAceptacion(descripcionCA, historiaCA);
+	     List<criteriosAceptacion> criteriosAceptacion1 =  criteriosAceptacionUtils.listarCriteriosAceptacionHistoria(historiaCA);
+		    request.setAttribute("criteriosAceptacion1", criteriosAceptacion1);
+		    RequestDispatcher rd =  
+		             getServletContext().getRequestDispatcher("/mostrarCriteriosAceptacion.jsp");
+		     rd.forward(request, response);
 	     
 	   }else if(request.getParameter("action").equals("show")){
-	    List<criteriosAceptacion> criteriosAceptacion1 =  criteriosAceptacionUtils.listarCriteriosAceptacion();
+	    List<criteriosAceptacion> criteriosAceptacion1 =  criteriosAceptacionUtils.listarCriteriosAceptacionHistoria(request.getParameter("historiaUID"));
 	    request.setAttribute("criteriosAceptacion1", criteriosAceptacion1);
 	    RequestDispatcher rd =  
 	             getServletContext().getRequestDispatcher("/mostrarCriteriosAceptacion.jsp");
 	     rd.forward(request, response);
 	   }if(request.getParameter("action").equals("delete")){
 		   criteriosAceptacionUtils.eliminarCriteriosAceptacion(Long.valueOf(request.getParameter("value")));
-		   List<criteriosAceptacion> criteriosAceptacion1 =  criteriosAceptacionUtils.listarCriteriosAceptacion();
+		   List<criteriosAceptacion> criteriosAceptacion1 =  criteriosAceptacionUtils.listarCriteriosAceptacionHistoria(request.getParameter("historiaUID"));
 		    request.setAttribute("criteriosAceptacion1", criteriosAceptacion1);
 		    RequestDispatcher rd =  
 		             getServletContext().getRequestDispatcher("/mostrarCriteriosAceptacion.jsp");

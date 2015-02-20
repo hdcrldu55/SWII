@@ -47,14 +47,14 @@ List<proyecto> proyecto1 = (List<proyecto>)request.getAttribute("proyecto1");
         </a>
       </p></td>
        <td><p>
-        <a href="proyectoservlet?action=delete&value=<%=pr.getIdProyecto()%>">
+        <a href="/proyectoservlet?action=delete&value=<%= pr.getIdProyecto() %>">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </p></td>
-      <th><a href="/CrearTeam.jsp">Crear Team</a><br></th>
-       <th>   <a href="/teamservlet?action=show"> Listar Team</a><br></th>  
-      <th><a href="/CrearHistoriasUsuario.jsp">Crear Historia de Usuario</a><br></th>
-     <th>   <a href="/historiausuarioservlet?action=show"> Listar Historia de Usuario</a><br></th>  
+      <th><a href="/CrearTeam.jsp?proyectoID=<%= pr.getIdProyecto() %>&nombreP=<%= pr.getNombreProyecto()%>">Crear Team</a><br></th>
+       <th><a href="/teamservlet?action=show&proyectoID=<%= pr.getIdProyecto() %>&nombreP=<%= pr.getNombreProyecto()%>"> Listar Team</a><br></th>  
+      <th><a href="/CrearHistoriasUsuario.jsp?proyectoID=<%= pr.getIdProyecto() %>&nombreP=<%= pr.getNombreProyecto()%>">Crear Historia de Usuario</a><br></th>
+     <th>   <a href="/historiausuarioservlet?action=show&proyectoID=<%= pr.getIdProyecto() %>&nombreP=<%= pr.getNombreProyecto()%>"> Listar Historia de Usuario</a><br></th>  
     </tr>
 
 <%}%>

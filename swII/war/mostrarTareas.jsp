@@ -21,7 +21,9 @@ List<tareas> tareas1 = (List<tareas>)request.getAttribute("tareas1");
 
   <body>
     <div class="container">
-      <h2>Listar Tareas</h2>
+      <h2>Listar Tareas de: <%= request.getParameter("nombreHU")  %></h2>
+      
+<a href="/CrearTareas.jsp?historiaUID=<%= request.getParameter("historiaUID") %>&nombreHU=<%= request.getParameter("nombreHU")  %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>">Crear Tarea</a>
                                                                                             
       <div class="table-responsive">          
       <table class="table">
@@ -41,7 +43,7 @@ List<tareas> tareas1 = (List<tareas>)request.getAttribute("tareas1");
      <td><%= ta.getNombreTarea() %></td>
      <td><%= ta.getResultadoTarea() %></td>
        <td><p>
-        <a href="tareasservlet?action=delete&value=<%=ta.getIdTarea()%>">
+        <a href="tareasservlet?action=delete&value=<%=ta.getIdTarea()%>&historiaUID=<%= request.getParameter("historiaUID") %>&nombreHU=<%= request.getParameter("nombreHU")  %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </p></td>          
@@ -57,9 +59,9 @@ List<tareas> tareas1 = (List<tareas>)request.getAttribute("tareas1");
  <span>
  
  
- <a href="/historiausuarioservlet?action=show">Ir a Historias de Usuario</a>
- <br>
- <br>
+ <a href="/historiausuarioservlet?action=show&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP")%>"> Listar Historia de Usuario</a>
+<br>
+<br>
    <a href="/index.jsp">Ir al Inicio</a>
 
 <div class=”overlay-container”>

@@ -30,24 +30,24 @@ public class historiaUsuarioServlet extends HttpServlet{
 	     String esfuerzoHU= request.getParameter("esfuerzohu");
 	     String descripcionHU= request.getParameter("descripcionhu");
 	     String observacionHU= request.getParameter("observacionhu");
-	     String tiempoHU= request.getParameter("tiempohu");
+	     String proyectoHU = request.getParameter("proyectohu");
 	     
-	     historiaUsuarioUtils.insertarHistoriaUsuario(nombreHU, responsableHU, riesgoHU, prioridadHU, esfuerzoHU, descripcionHU, observacionHU, tiempoHU);
-	     List<historiaUsuario> historiaUsuario1 = historiaUsuarioUtils.listarHistoriaUsuario();
+	     historiaUsuarioUtils.insertarHistoriaUsuario(nombreHU, responsableHU, riesgoHU, prioridadHU, esfuerzoHU, descripcionHU, observacionHU, proyectoHU);
+	     List<historiaUsuario> historiaUsuario1 = historiaUsuarioUtils.listarHistoriaUsuarioProyecto(proyectoHU);
 		    request.setAttribute("historiaUsuario1", historiaUsuario1);
 		    RequestDispatcher rd =  
 		             getServletContext().getRequestDispatcher("/mostrarHistoriasUsuario.jsp");
 		     rd.forward(request, response);
 	     
 	   }else if(request.getParameter("action").equals("show")){
-	    List<historiaUsuario> historiaUsuario1 = historiaUsuarioUtils.listarHistoriaUsuario();
+	    List<historiaUsuario> historiaUsuario1 = historiaUsuarioUtils.listarHistoriaUsuarioProyecto(request.getParameter("proyectoID"));
 	    request.setAttribute("historiaUsuario1", historiaUsuario1);
 	    RequestDispatcher rd =  
 	             getServletContext().getRequestDispatcher("/mostrarHistoriasUsuario.jsp");
 	     rd.forward(request, response);
 	   }else if(request.getParameter("action").equals("delete")){
 		   historiaUsuarioUtils.eliminarHistoriaUsuario(Long.valueOf(request.getParameter("value")));
-		    List<historiaUsuario> historiaUsuario1 = historiaUsuarioUtils.listarHistoriaUsuario();
+		    List<historiaUsuario> historiaUsuario1 = historiaUsuarioUtils.listarHistoriaUsuarioProyecto(request.getParameter("proyectoID"));
 		    request.setAttribute("historiaUsuario1", historiaUsuario1);
 		    RequestDispatcher rd =  
 		             getServletContext().getRequestDispatcher("/mostrarHistoriasUsuario.jsp");

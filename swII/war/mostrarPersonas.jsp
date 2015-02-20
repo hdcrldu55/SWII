@@ -4,6 +4,7 @@
 
 <%
 List<persona> personas1 = (List<persona>)request.getAttribute("personas1");
+String nombreT = request.getParameter("nombreT");
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,7 +22,9 @@ List<persona> personas1 = (List<persona>)request.getAttribute("personas1");
 
   <body>
     <div class="container">
-      <h2>Listar Personas</h2>
+      <h2>Listar Personas de: <%=nombreT%></h2>
+      
+<a href="/CrearPersona.jsp?teamID=<%=request.getParameter("teamID")%>&nombreT=<%=request.getParameter("nombreT")%>&proyectoID=<%=request.getParameter("proyectoID")%>&nombreP=<%=request.getParameter("nombreP")%>">Crear Persona</a>      
                                                                                             
       <div class="table-responsive">          
       <table class="table">
@@ -51,7 +54,7 @@ List<persona> personas1 = (List<persona>)request.getAttribute("personas1");
         </a>
       </p></td>
        <td><p>
-        <a href="personaservlet?action=delete&value=<%=p.getIdPersona()%>">
+        <a href="personaservlet?action=delete&value=<%=p.getIdPersona()%>&teamID=<%=request.getParameter("teamID")%>&nombreT=<%=request.getParameter("nombreT")%>&proyectoID=<%=request.getParameter("proyectoID")%>&nombreP=<%=request.getParameter("nombreP")%>">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </p></td>
@@ -66,7 +69,10 @@ List<persona> personas1 = (List<persona>)request.getAttribute("personas1");
     </div>
    <div style="text-align: center;">
  <span>
-
+ 
+ <a href="/teamservlet?action=show&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP")%>"> Listar Team</a>
+ <br>
+ <br>
    <a href="/index.jsp">Ir al Inicio</a>
 
 <div class=”overlay-container”>

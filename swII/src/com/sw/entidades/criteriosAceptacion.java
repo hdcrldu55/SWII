@@ -12,9 +12,18 @@ public class criteriosAceptacion {
 	private Long idCA;
 	@Persistent 
 	private String descripcionCA;
-	public criteriosAceptacion(String descripcionCA) {
+	@Persistent 
+	private String historiaCA;
+	public criteriosAceptacion(String descripcionCA, String historiaCA) {
 		super();
 		this.descripcionCA = descripcionCA;
+		this.historiaCA = historiaCA;
+	}
+	public String getHistoriaCA() {
+		return historiaCA;
+	}
+	public void setHistoriaCA(String historiaCA) {
+		this.historiaCA = historiaCA;
 	}
 	public Long getIdCA() {
 		return idCA;

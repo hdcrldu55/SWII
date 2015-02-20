@@ -21,7 +21,9 @@ List<criteriosAceptacion> criteriosAceptacion1 = (List<criteriosAceptacion>)requ
 
   <body>
     <div class="container">
-      <h2>Listar Criterios de Aceptación </h2>
+      <h2>Listar Criterios de Aceptación de: <%=request.getParameter("nombreHU")%></h2>
+      
+      <a href="/CrearCriteriosAceptacion.jsp?historiaUID=<%= request.getParameter("historiaUID")%>&nombreHU=<%= request.getParameter("nombreHU") %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>">Crear Criterio de Aceptación</a>
                                                                                             
       <div class="table-responsive">          
       <table class="table">
@@ -40,7 +42,7 @@ List<criteriosAceptacion> criteriosAceptacion1 = (List<criteriosAceptacion>)requ
      <td><%= ca.getIdCA() %></td>
      <td><%= ca.getDescripcionCA() %></td>
        <td><p>
-        <a href="criteriosaceptacionservlet?action=delete&value=<%=ca.getIdCA()%>">
+        <a href="criteriosaceptacionservlet?action=delete&value=<%=ca.getIdCA()%>&historiaUID=<%= request.getParameter("historiaUID")%>&nombreHU=<%= request.getParameter("nombreHU") %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </p></td>
@@ -56,9 +58,9 @@ List<criteriosAceptacion> criteriosAceptacion1 = (List<criteriosAceptacion>)requ
    <div style="text-align: center;">
  <span>
  
-  <a href="/historiausuarioservlet?action=show">Ir a Historias de Usuario</a>
- <br>
- <br>
+<a href="/historiausuarioservlet?action=show&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP")%>"> Listar Historia de Usuario</a>
+<br>
+<br>
    <a href="/index.jsp">Ir al Inicio</a>
 
 <div class=”overlay-container”>
