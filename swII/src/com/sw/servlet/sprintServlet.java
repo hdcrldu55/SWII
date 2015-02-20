@@ -37,8 +37,9 @@ import com.sw.utils.sprintUtils;
 		     Date fechaFinSprint= new Date();
 		     fechaFinSprint = sdf.parse(request.getParameter("fechaFinSprint"));
 		     String horaSprint= request.getParameter("horaSprint");
+		     String proyectoSprint= request.getParameter("proyectoSprint");
 		     
-		     sprintUtils.insertarSprint(nombreSprint, descripcionSprint, fechaInicioSprint, fechaFinSprint, horaSprint);
+		     sprintUtils.insertarSprint(nombreSprint, descripcionSprint, fechaInicioSprint, fechaFinSprint, horaSprint, proyectoSprint);
 		     	
 		     List<sprint> sprint1 = sprintUtils.listarSprint();
 			    request.setAttribute("sprint1", sprint1);

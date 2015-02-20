@@ -11,10 +11,10 @@ import com.sw.entidades.sprint;
 
 
 public class sprintUtils {
-	public static void insertarSprint(String nombreSprint, String descripcionSprint,Date fechaInicioSprint, Date fechaFinSprint, String horaSprint)
+	public static void insertarSprint(String nombreSprint, String descripcionSprint,Date fechaInicioSprint, Date fechaFinSprint, String horaSprint, String proyectoSprint)
 	{
 		PersistenceManager  pmf = sprintPMF.get().getPersistenceManager();	
-		sprint sprint1 = new sprint(nombreSprint, descripcionSprint, fechaInicioSprint, fechaFinSprint, horaSprint); 
+		sprint sprint1 = new sprint(nombreSprint, descripcionSprint, fechaInicioSprint, fechaFinSprint, horaSprint, proyectoSprint); 
 		pmf.makePersistent(sprint1);
 		
 	}

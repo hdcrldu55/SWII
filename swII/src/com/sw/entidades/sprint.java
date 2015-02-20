@@ -36,6 +36,12 @@ public class sprint {
 		this.horaSprint = horaSprint;
 		this.proyectoSprint = proyectoSprint;
 	}
+	public String getProyectoSprint() {
+		return proyectoSprint;
+	}
+	public void setProyectoSprint(String proyectoSprint) {
+		this.proyectoSprint = proyectoSprint;
+	}
 	public String getHoraSprint() {
 		return horaSprint;
 	}
