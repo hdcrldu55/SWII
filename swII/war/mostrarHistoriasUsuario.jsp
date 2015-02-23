@@ -4,8 +4,7 @@
 
 <%
 List<historiaUsuario> historiaUsuario1 = (List<historiaUsuario>)request.getAttribute("historiaUsuario1");
-String proyecto = request.getParameter("proyectoID");
-String nombre = request.getParameter("nombreP");
+String nombreSprint = request.getParameter("nombreSprint");
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,9 +22,9 @@ String nombre = request.getParameter("nombreP");
 
   <body>
     <div class="container">
-      <h2>Listar Historia de Usuario de: <%=nombre%></h2> 
+      <h2>Listar Historia de Usuario de: <%=nombreSprint%></h2> 
                                                   
-<a href="/CrearHistoriasUsuario.jsp?proyectoID=<%=proyecto%>&nombreP=<%=nombre%>">Crear Historia de Usuario</a>  
+<a href="/CrearHistoriasUsuario.jsp?sprintID=<%=request.getParameter("sprintID")%>&nombreSprint=<%=request.getParameter("nombreSprint")%>&proyectoID=<%=request.getParameter("proyectoID")%>&nombreP=<%=request.getParameter("nombreP")%>">Crear Historia de Usuario</a>  
                                                                                          
       <div class="table-responsive">          
       <table class="table">
@@ -57,12 +56,13 @@ String nombre = request.getParameter("nombreP");
      <td><%= hu.getEsfuerzoHU() %></td>
      <td><%= hu.getDescripcionHU() %></td>
      <td><%= hu.getObservacionHU() %></td>
-     <th><a href="/CrearTareas.jsp?historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>">Crear Tarea</a><br></th>
-       <th>   <a href="/tareasservlet?action=show&historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>"> Listar Tarea</a><br></th>  
- <th><a href="/CrearCriteriosAceptacion.jsp?historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>">Crear Criterio de Aceptación</a><br></th>
-       <th>   <a href="/criteriosaceptacionservlet?action=show&historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>"> Listar Criterio de Aceptación</a></th>  
+     <th><a href="/CrearTareas.jsp?historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&proyectoID=<%= request.getParameter("proyectoID") %>&proyectoSprint=<%= request.getParameter("nombreSprint") %>">Crear Tarea</a><br></th>
+       <th>   <a href="/tareasservlet?action=show&historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreSprint") %>"> Listar Tarea</a><br></th>  
+ <th><a href="/CrearCriteriosAceptacion.jsp?historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&sprintID=<%= request.getParameter("sprintID") %>&nombreSprint=<%= request.getParameter("nombreSprint") %>">Crear Criterio de Aceptación</a><br></th>
+       <th>   <a href="/criteriosaceptacionservlet?action=show&historiaUID=<%= hu.getIdHusuario()%>&nombreHU=<%= hu.getNombreHU() %>&sprintID=<%= request.getParameter("sprintID") %>&nombreSprint=<%= request.getParameter("nombreSprint") %>"> Listar Criterio de Aceptación</a></th>  
        <th></th>
-       <th>   <a href="historiausuarioservlet?action=delete&value=<%=hu.getIdHusuario()%>&proyectoID=<%=proyecto%>&nombreP=<%=nombre%>">Eliminar</a><br></th>
+       
+       <th>   <a href="historiausuarioservlet?action=delete&value=<%=hu.getIdHusuario()%>&sprintID=<%=request.getParameter("sprintID")%>&nombreSprint=<%=nombreSprint%>&proyectoID=<%=request.getParameter("proyectoID")%>&nombreP=<%=request.getParameter("nombreP")%>">Eliminar</a><br></th>
     </tr>
 <%}%>
 
@@ -72,9 +72,7 @@ String nombre = request.getParameter("nombreP");
     </div>
    <div style="text-align: center;">
  <span>
- 
- 
- <a href="/proyectoservlet?action=show">Ir a Proyectos</a>
+<a href="/proyectoservlet?action=show">Ir a Proyectos</a>
 <br>
 <br>
    <a href="/index.jsp">Ir al Inicio</a>

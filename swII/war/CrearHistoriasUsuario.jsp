@@ -1,6 +1,7 @@
 <%@page import="java.util.*"%>
-<%String proyecto = request.getParameter("proyectoID"); 
-String nombre = request.getParameter("nombreP");%>
+<%String sprintID = request.getParameter("sprintID"); 
+String nombreSprint = request.getParameter("nombreSprint");
+%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -20,24 +21,28 @@ String nombre = request.getParameter("nombreP");%>
  <span>
   <a href="/index.jsp">Ir al indice</a><br>
  </span>
- <span><h1>Crear Historia de Usuario para: <%=nombre%></h1></span>
+ <span><h1>Crear Historia de Usuario para: <%=nombreSprint%></h1></span>
  
   <form action="/historiausuarioservlet" method="get">
   <table border="0">
    <tr>
-       <input type="hidden" name="proyectohu" value="<%= proyecto %>"/>
+       <input type="hidden" name="proyectohu" value="<%= sprintID %>"/>
        <td>Proyecto:</td>
        <label class="control-label col-sm-1"></label> 
-       <td><input type="text" name="proyectohu" value="<%= proyecto %>" disabled="disabled"/></td>
+       <td><input type="text" name="proyectohu" value="<%= sprintID %>" disabled="disabled"/></td>
   </tr>
    <tr>
        <td>Nombre:</td>
-       <td><input type="text" name="nombrehu" /></td>
+       <td><input type="text" name="nombrehu" required/></td>
   </tr>
+  
    <tr>
        <td>Responsable:</td>
-       <td><input type="text" name="responsablehu" /></td>
+       <td><input type="text" name="responsablehu" required/></td>
   </tr>
+  
+  
+  
    <tr>
        <td>Riesgo:</td>
 	<td>
@@ -62,12 +67,12 @@ String nombre = request.getParameter("nombreP");%>
        </tr>
      <tr>
        <td>Esfuerzo:</td>
-       <td><input type="text" name="esfuerzohu" /></td>
+       <td><input type="number" name="esfuerzohu" required/></td>
        </tr>
        <tr>
        <td>Descripción:</td>
              <label class="control-label col-sm-2"></label> 
-     <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="descripcionhu"/>>
+     <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="descripcionhu" required/>>
            </TEXTAREA> 
       </td>
        
@@ -75,22 +80,31 @@ String nombre = request.getParameter("nombreP");%>
        <tr>
        <td>Observación:</td>
          <label class="control-label col-sm-2"></label> 
-     <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="observacionhu"/>>
+     <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="observacionhu" required/>>
            </TEXTAREA> 
       </td>
       </tr>
       <tr>
        <td colspan="2" bgcolor="#ffffff" align="left">
        <input type="hidden" name="action" value="create"/>
-       <input type="hidden" name="proyectoID" value="<%=request.getParameter("proyectoID")%>"/>
+       
+         <input type="hidden" name="proyectoID" value="<%=request.getParameter("proyectoID")%>"/>
        <input type="hidden" name="nombreP" value="<%=request.getParameter("nombreP")%>"/>
+       <input type="hidden" name="sprintID" value="<%=request.getParameter("sprintID")%>"/>
+       <input type="hidden" name="nombreSprint" value="<%=request.getParameter("nombreSprint")%>"/>
+
        <input type="submit" value="Registrar" >
        </td>
       </tr>
    </table>
         <div style="text-align: center;">
  <span>
- <a href="/historiausuarioservlet?action=show&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP")%>"> Listar Historia de Usuario</a>
+ 
+ 
+
+
+<a href="/proyectoservlet?action=show">Ir a Proyectos</a> 
+ 
 <br>
 <br> 
 <a href="/proyectoservlet?action=show">Ir a Proyectos</a>

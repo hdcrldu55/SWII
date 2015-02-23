@@ -53,8 +53,9 @@ List<proyecto> proyecto1 = (List<proyecto>)request.getAttribute("proyecto1");
       </p></td>
       <th><a href="/CrearTeam.jsp?proyectoID=<%= pr.getIdProyecto() %>&nombreP=<%= pr.getNombreProyecto()%>">Crear Team</a><br></th>
        <th><a href="/teamservlet?action=show&proyectoID=<%= pr.getIdProyecto() %>&nombreP=<%= pr.getNombreProyecto()%>"> Listar Team</a><br></th>  
-      <th><a href="/CrearHistoriasUsuario.jsp?proyectoID=<%= pr.getIdProyecto() %>&nombreP=<%= pr.getNombreProyecto()%>">Crear Historia de Usuario</a><br></th>
-     <th>   <a href="/historiausuarioservlet?action=show&proyectoID=<%= pr.getIdProyecto() %>&nombreP=<%= pr.getNombreProyecto()%>"> Listar Historia de Usuario</a><br></th>  
+      
+      <th><a href="/crearSprint.jsp?proyectoID=<%= pr.getIdProyecto() %>&nombreP=<%= pr.getNombreProyecto()%>">Crear Sprint</a><br></th>
+     <th>   <a href="/sprintservlet?action=show&proyectoID=<%= pr.getIdProyecto() %>&nombreP=<%= pr.getNombreProyecto()%>"> Listar Sprint</a><br></th>  
     </tr>
 
 <%}%>

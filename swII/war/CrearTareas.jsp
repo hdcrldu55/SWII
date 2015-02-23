@@ -32,7 +32,7 @@
   <tr>
        <td>Nombre:</td>
            <label class="control-label col-sm-2"></label> 
-          <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="nombreTarea"/>>
+          <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="nombreTarea" required/>>
            </TEXTAREA> 
       </td>
       
@@ -40,7 +40,7 @@
    <tr>
        <td>Resultado:</td>
         <label class="control-label col-sm-2"></label> 
-          <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="resultadoTarea"/>>
+          <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="resultadoTarea" required/>>
            </TEXTAREA> 
       </td>
   </tr>
@@ -59,10 +59,10 @@
         <div style="text-align: center;">
  <span>
  
- <a href="/tareasservlet?action=show&historiaUID=<%=request.getParameter("historiaUID")%>&nombreHU=<%= request.getParameter("nombreHU") %>&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP") %>"> Listar Tarea</a>
+ <a href="/proyectoservlet?action=show">Ir a Proyectos</a>
 <br>
 <br>
- <a href="/historiausuarioservlet?action=show&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP")%>"> Listar Historia de Usuario</a>
+ 
 <br>
 <br>
    <a href="/index.jsp">Ir al Inicio</a>

@@ -33,15 +33,15 @@ String nombreT = request.getParameter("nombreT");%>
 
    <tr>
        <td>Nombre:</td>
-       <td><input type="text" name="nombre" /></td>
+       <td><input type="text" name="nombre" required/></td>
   </tr>
    <tr>
        <td>Apellido:</td>
-       <td><input type="text" name="apellido" /></td>
+       <td><input type="text" name="apellido" required/></td>
   </tr>
    <tr>
        <td>Mail:</td>
-       <td><input type="text" name="mail" /></td>
+       <td><input type="text" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" name="mail" required/></td>
   </tr>
    <tr>
 <TR>

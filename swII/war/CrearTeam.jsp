@@ -30,12 +30,12 @@ String nombre = request.getParameter("nombreP");%>
   </tr>
        <tr>
        <td>Nombre:</td>    
-       <td><input type="text" name="nombreTeam" /></td>
+       <td><input type="text" name="nombreTeam" required/></td>
       </tr>     
       <tr>
        <td>Descripción:</td>
          <label class="control-label col-sm-2"></label> 
-          <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="descripcionTeam"/>>
+          <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="descripcionTeam" required/>>
            </TEXTAREA> 
       </td>
       </tr>

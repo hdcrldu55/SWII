@@ -38,20 +38,20 @@
   <table border="0">
        <tr>
        <td>Nombre:</td>
-       <label class="control-label col-sm-2"></label>      
-       <td><input type="text" name="nombreProyecto" /></td>
+       <label class="control-label col-sm-2"></label>     
+       <td><input type="text" name="nombreProyecto" required/></td>
       </tr>     
       <tr>
        <td>Descripción:</td>
         <label class="control-label col-sm-2"></label> 
-          <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="descripcionProyecto"/>>
+          <td>  <TEXTAREA <input COLS=40 ROWS=5 NAME="descripcionProyecto" required/>>
            </TEXTAREA> 
       </td>
     
       </tr>
       <tr>
        <td>Fecha:</td>
-       <td><input type="text" name="fechaProyecto" class="campofecha" size="12"></td>
+       <td><input type="text" name="fechaProyecto" class="campofecha" size="12" required></td>
       </tr>   
       
           

@@ -59,7 +59,7 @@ List<tareas> tareas1 = (List<tareas>)request.getAttribute("tareas1");
  <span>
  
  
- <a href="/historiausuarioservlet?action=show&proyectoID=<%= request.getParameter("proyectoID") %>&nombreP=<%= request.getParameter("nombreP")%>"> Listar Historia de Usuario</a>
+ <a href="/proyectoservlet?action=show">Ir a Proyectos</a>
 <br>
 <br>
    <a href="/index.jsp">Ir al Inicio</a>

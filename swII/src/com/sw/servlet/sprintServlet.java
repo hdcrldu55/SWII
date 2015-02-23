@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import com.sw.entidades.historiaUsuario;
 import com.sw.entidades.sprint;
+
+import com.sw.utils.historiaUsuarioUtils;
 import com.sw.utils.sprintUtils;
 
 
@@ -41,25 +45,29 @@ import com.sw.utils.sprintUtils;
 		     
 		     sprintUtils.insertarSprint(nombreSprint, descripcionSprint, fechaInicioSprint, fechaFinSprint, horaSprint, proyectoSprint);
 		     	
-		     List<sprint> sprint1 = sprintUtils.listarSprint();
+		     List<sprint> sprint1 = sprintUtils.listarSprintProyecto(proyectoSprint);
 			    request.setAttribute("sprint1", sprint1);
 		     RequestDispatcher rd =  
 		             getServletContext().getRequestDispatcher("/mostrarSprint.jsp");
 		     rd.forward(request, response);
 		     
 		   }else if(request.getParameter("action").equals("show")){
-		    List<sprint> sprint1 = sprintUtils.listarSprint();
+			   		  
+		    List<sprint> sprint1 = sprintUtils.listarSprintProyecto(request.getParameter("proyectoID"));
 		    request.setAttribute("sprint1", sprint1);
 		    RequestDispatcher rd =  
 		             getServletContext().getRequestDispatcher("/mostrarSprint.jsp");
 		     rd.forward(request, response);
 		   }else if(request.getParameter("action").equals("delete")){
+			   
 			   sprintUtils.eliminarSprint(Long.valueOf(request.getParameter("value")));
-			    List<sprint> sprint1 = sprintUtils.listarSprint();
+			    List<sprint> sprint1 = sprintUtils.listarSprintProyecto(request.getParameter("proyectoID"));
 			    request.setAttribute("sprint1", sprint1);
 			    RequestDispatcher rd =  
 			             getServletContext().getRequestDispatcher("/mostrarSprint.jsp");
 			     rd.forward(request, response);
+			     
+	     
 		   }
 		  } catch (ParseException e) {
 			// TODO Auto-generated catch block

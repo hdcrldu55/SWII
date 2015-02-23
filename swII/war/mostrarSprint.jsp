@@ -3,6 +3,9 @@
 
 <%
 List<sprint> sprint1 = (List<sprint>)request.getAttribute("sprint1");
+String proyecto = request.getParameter("proyectoID");
+String nombre = request.getParameter("nombreP");
+
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,7 +21,7 @@ List<sprint> sprint1 = (List<sprint>)request.getAttribute("sprint1");
   <body>
   
     <div class="container">
-      <h2>Listar Sprint</h2>
+      <h2>Listar Sprint de:  <%=nombre%></h2>
                                                                                             
       <div class="table-responsive">          
       <table class="table">
@@ -39,13 +42,14 @@ List<sprint> sprint1 = (List<sprint>)request.getAttribute("sprint1");
 	 sprint sp = (sprint)sprint1.get(idx);
 %>
     <tr>
-    
+     
     <td><%= sp.getIdSprint()%></td>
      <td><%= sp.getNombreSprint() %></td>
      <td><%= sp.getDescripcionSprint()%></td>
      <td><%= sp.getFechaInicioSprint()%></td>
      <td><%= sp.getFechaFinSprint()%></td>
-     <td><%= sp.getHoraSprint()%></td>     
+     <td><%= sp.getHoraSprint()%></td>
+     <td><%= sp.getProyectoSprint()%></td>      
       <td> <p>
         <a href="#">
           <span class="glyphicon glyphicon-repeat"></span>
@@ -57,7 +61,10 @@ List<sprint> sprint1 = (List<sprint>)request.getAttribute("sprint1");
         </a>
       </p></td>
       
-     <th>   <a href="/historiausuarioservlet?action=show"> Listar Historia de Usuario</a><br></th>  
+        <th><a href="/CrearHistoriasUsuario.jsp?sprintID=<%= sp.getIdSprint()%>&nombreSprint=<%=sp.getNombreSprint()%>&proyectoID=<%=proyecto%>&nombreP=<%=nombre%>">Crear Historia de Usuario</a><br></th>
+     <th>   <a href="/historiausuarioservlet?action=show&sprintID=<%=sp.getIdSprint()%>&nombreSprint=<%=sp.getNombreSprint()%>&proyectoID=<%=proyecto%>&nombreP=<%=nombre%>"> Listar Historia de Usuario</a><br></th>
+      
+
     </tr>
 
 <%}%>
@@ -68,13 +75,16 @@ List<sprint> sprint1 = (List<sprint>)request.getAttribute("sprint1");
     </div>
    <div style="text-align: center;">
  <span>
-
+ <a href="/proyectoservlet?action=show">Ir a Proyectos</a><br>
    <a href="/index.jsp">Ir al Inicio</a>
+   <div class=”overlay-container”>
   </span>
 </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>!window.jQuery && document.write(unescape('%3Cscript src=”jquery-1.7.1.min.js”%3E%3C/script%3E'))</script>
+    <script type="text/javascript" src="demo.js"></script>
   </body>
 
 </html>
